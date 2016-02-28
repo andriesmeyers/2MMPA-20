@@ -5,9 +5,9 @@
 
 #### Ellen Vandeveire & Andries Meyers
 
-Opleidingsonderdeel: New Media Design & Development II
-Academiejaar: 2015-2016
-Opleiding: Bachelor in de grafische en digitale media
-Afstudeerrichting: Multimediaproductie
-Keuzeoptie: proDEV
+Opleidingsonderdeel: New Media Design & Development II </br>
+Academiejaar: 2015-2016 </br>
+Opleiding: Bachelor in de grafische en digitale media </br>
+Afstudeerrichting: Multimediaproductie </br>
+Keuzeoptie: proDEV </br>
 Opleidingsinstelling: Arteveldehogeschool
