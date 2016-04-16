@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Product extends Model
 {
     use SoftDeletes;
 
@@ -53,4 +53,3 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 }
-
