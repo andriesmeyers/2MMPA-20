@@ -14,6 +14,12 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        Commands\ArteveldeDatabaseBackup::class,
+        Commands\ArteveldeDatabaseDrop::class,
+        Commands\ArteveldeDatabaseInit::class,
+        Commands\ArteveldeDatabaseReset::class,
+        Commands\ArteveldeDatabaseRestore::class,
+        Commands\ArteveldeDatabaseUser::class,
     ];
 
     /**
