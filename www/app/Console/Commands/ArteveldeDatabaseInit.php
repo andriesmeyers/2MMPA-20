@@ -55,7 +55,7 @@ class ArteveldeDatabaseInit extends Command
         $this->callSilent('artevelde:database:drop');
 
         // Create database
-        $sql = "CREATE DATABASE IF NOT EXISTS ${dbName} CHARACTER SET utf8 COLLATE utf8_general_ci";
+        $sql = "CREATE DATABASE IF NOT EXISTS ${dbName} CHARACTER SET utf8 COLLATE utf8_unicode_ci";
         $command = sprintf('MYSQL_PWD=%s mysql --user=%s --execute="%s"', $dbPassword, $dbUsername, $sql);
         exec($command);
 

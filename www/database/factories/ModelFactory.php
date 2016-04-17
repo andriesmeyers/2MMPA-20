@@ -33,7 +33,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'content' => $faker->paragraph($sentences = 3),
     ];
 });
-
+/*
 $factory->define(Product::class, function (Faker $faker) {
     return [
         CreateUsersTable::FK => User::all()->random()->{CreateUsersTable::PK},
@@ -41,7 +41,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'title' => $faker->sentence($words = 1),
         'content' => $faker->paragraph($sentences = 3),
     ];
-});
+});*/
 
 $factory->define(Tag::class, function (Faker $faker) {
     return [

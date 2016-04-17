@@ -15,9 +15,8 @@ class Category extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function posts()
+    public function products()
     {
-        // Post::class -> Geeft je de namespace al mee
         return $this->hasMany(Product::class);
     }
 }
