@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -35,6 +35,6 @@ class User extends Authenticatable
     public function posts()
     {
         // Post::class -> Geeft je de namespace al mee
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Product::class);
     }
 }

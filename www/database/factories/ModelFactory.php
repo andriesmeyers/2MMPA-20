@@ -2,8 +2,6 @@
 
 use App\User;
 use App\Models\Category;
-use App\Models\Post;
-use App\Models\Tag;
 use App\Models\Product;
 use Faker\Generator as Faker;
 
@@ -25,15 +23,7 @@ $factory->define(Category::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(Post::class, function (Faker $faker) {
-    return [
-        CreateUsersTable::FK => User::all()->random()->{CreateUsersTable::PK},
-        CreateCategoriesTable::FK => Category::all()->random()->{CreateCategoriesTable::PK},
-        'title' => $faker->sentence($words = 3),
-        'content' => $faker->paragraph($sentences = 3),
-    ];
-});
-/*
+
 $factory->define(Product::class, function (Faker $faker) {
     return [
         CreateUsersTable::FK => User::all()->random()->{CreateUsersTable::PK},
@@ -41,15 +31,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'title' => $faker->sentence($words = 1),
         'content' => $faker->paragraph($sentences = 3),
     ];
-});*/
-
-$factory->define(Tag::class, function (Faker $faker) {
-    return [
-        'name' => $faker->unique()->word(),
-        'description' => $faker->paragraph($sentences = 3),
-    ];
 });
-
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,

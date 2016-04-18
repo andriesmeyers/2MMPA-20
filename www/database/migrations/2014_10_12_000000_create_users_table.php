@@ -5,6 +5,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
+    const MODEL = 'user';
+    const TABLE = self::MODEL.'s';
+    const PK = 'id';
+    const FK = self::MODEL.'_'.self::PK;
+
     /**
      * Run the migrations.
      *
@@ -12,13 +17,20 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create(self::TABLE, function (Blueprint $table) {
+            // Primary Key
+            $table->increments(self::PK);
+
+            // Data
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password', 60);
             $table->rememberToken();
-            $table->timestamps();
+            $table->string('given_name');
+            $table->string('family_name');
+
+            // Meta Data
+            $table->timestamps(); // 'created_at', 'updated_at'
         });
     }
 
@@ -29,6 +41,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop(self::TABLE);
     }
 }

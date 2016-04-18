@@ -25,18 +25,6 @@ class Product extends Model
     }
 
     /**
-     * Many-to-Many.
-     *
-     * @link https://laravel.com/docs/5.2/eloquent-relationships#many-to-many
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
-
-    /**
      * Many-to-One.
      *
      * @link https://laravel.com/docs/5.2/eloquent-relationships#one-to-many

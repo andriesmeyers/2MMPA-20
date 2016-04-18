@@ -5,6 +5,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProductsTable extends Migration
 {
+    const MODEL = 'product';
+    const TABLE = self::MODEL.'s';
+    const PK = 'id';
+    const FK = self::MODEL.'_'.self::PK;
+
     /**
      * Run the migrations.
      *
@@ -12,9 +17,30 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create(self::TABLE, function (Blueprint $table) {
+            // Primary Key
+            $table->increments(self::PK);
+
+            // Foreign Keys
+            $table->unsignedInteger(CreateCategoriesTable::FK);
+            $table->foreign(CreateCategoriesTable::FK) // CreateCategoriesTable::FK = category_id
+            ->references(CreateCategoriesTable::PK)
+                ->on(CreateCategoriesTable::TABLE)
+                ->onDelete('cascade'); //cascade -> deze rij wordt ook verwijderd.
+
+            $table->unsignedInteger(CreateUsersTable::FK);
+            $table->foreign(CreateUsersTable::FK)
+                ->references(CreateUsersTable::PK)
+                ->on(CreateUsersTable::TABLE)
+                ->onDelete('cascade');
+
+            // Data
+            $table->string('title');
+            $table->text('content');
+
+            // Meta Data
+            $table->timestamps(); // 'created_at', 'updated_at'
+            $table->softDeletes(); // 'deleted_at'
         });
     }
 
@@ -25,6 +51,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('products');
+        Schema::drop(self::TABLE);
     }
 }

@@ -22,8 +22,6 @@ class DatabaseSeeder extends Seeder
         $seeders = [
             UsersTableSeeder::class,
             CategoriesTableSeeder::class,
-            TagsTableSeeder::class,
-            PostsTableSeeder::class,
             ProductsTableSeeder::class,
         ];
 
