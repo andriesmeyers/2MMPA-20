@@ -3,9 +3,12 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
-    const TABLE = 'password_resets';
+    const MODEL = 'category';
+    const TABLE = 'categories';
+    const PK = 'id';
+    const FK = self::MODEL.'_'.self::PK;
 
     /**
      * Run the migrations.
@@ -15,12 +18,15 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create(self::TABLE, function (Blueprint $table) {
+            // Primary Key
+            $table->increments(self::PK);
+
             // Data
-            $table->string('email')->index();
-            $table->string('token')->index();
+            $table->string('name')->unique();
+            $table->text('description');
 
             // Meta Data
-            $table->timestamp('created_at');
+            $table->timestamps(); // 'created_at', 'updated_at'
         });
     }
 
